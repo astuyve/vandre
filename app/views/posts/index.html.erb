@@ -1,0 +1,34 @@
+<h1>Where we've wandered</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Picture</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.name %></td>
+        <td><%= post.description %></td>
+        <td><%= link_to image_tag(post.picture_url(:thumb)), post if post.picture? %></td>
+        <td><%= post.latitude %></td>
+        <td><%= post.longitude %></td>
+        <td><%= link_to 'Edit', edit_post_path(post) if correct_user(post) %></td>
+        <td><%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } if correct_user(post) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path, class: "btn btn-large btn-primary" %>
