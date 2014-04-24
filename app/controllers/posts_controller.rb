@@ -67,7 +67,9 @@ class PostsController < ApplicationController
 
 	def correct_user
 		@post = Post.find(params[:id])
-		redirect_back_or_default(message="You didn't create this post") unless @post.created_by.to_s == current_user.id.to_s
+		authorize! :update, @post
+		#redirect_back_or_default(message="You don't have permissions to modify this post") unless can? :update, @post
+		#redirect_back_or_default(message="You didn't create this post") unless (@post.created_by.to_s == current_user.id.to_s or current_user.has_role? :admin)
 	end
 
   private

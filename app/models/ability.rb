@@ -33,7 +33,9 @@ class Ability
 
 		if user.has_role? :author
 			can :manage, Post, :created_by => user.id
-		elsif user.has_any_role? :admin, :manager
+		end
+		
+		if user.has_any_role? :admin, :manager
 			can :manage, :all
 		end
   end
