@@ -32,7 +32,7 @@ class Ability
 		can :read, :all
 
 		if user.has_role? :author
-			can :manage, Post, :created_by => user.id
+			can :manage, Post, :user_id => user.id
 		end
 		
 		if user.has_any_role? :admin, :manager

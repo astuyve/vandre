@@ -1,0 +1,17 @@
+
+<table class="table table-striped">
+<thread>
+<tr>
+	<th>Name</th>
+	<th>Latest Post</th>
+	<th>Picture</th>
+</tr>
+</thread>
+<tbody>
+<% @users.each do |user| %>
+	<tr>
+		<td><%= user.email %></td>
+		<td><%= user.posts.last.name %></td>
+		<td><%= link_to image_tag(user.posts.last.picture_url(:thumb)), user.posts.last if user.posts.last.picture? %></td>
+	</tr>
+<% end %>

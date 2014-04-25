@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140424150709) do
     t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "created_by"
+    t.integer  "user_id"
   end
 
   create_table "users", force: true do |t|

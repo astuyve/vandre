@@ -1,5 +1,6 @@
 Vandre::Application.routes.draw do
   devise_for :users
+	resources :users
   resources :posts
   root :to => redirect('/posts')
   # The priority is based upon order of creation: first created -> highest priority.
