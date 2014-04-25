@@ -17,3 +17,6 @@
 
 # Ignore swapfiles
 *.swp
+
+# Ignore public files
+/public

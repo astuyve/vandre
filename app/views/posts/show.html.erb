@@ -11,12 +11,12 @@
 
 <p>
   <strong>Picture:</strong>
-  <%= image_tag(@post.picture_url, :width=>600) if @post.picture.present? %>
+  <%= link_to image_tag(@post.picture_url, :width=>600), @post.picture.url if @post.picture.present? %>
 </p>
 
 <p>
 	<strong>Location:</strong>
-	<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&maptype=hybrid&sensor=false&zoom=16&markers=#{@post.latitude}%2C#{@post.longitude}" %>
+	<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&maptype=hybrid&sensor=false&zoom=15&markers=#{@post.latitude}%2C#{@post.longitude}" %>
 </p>
 
 <p>

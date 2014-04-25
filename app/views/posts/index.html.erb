@@ -1,6 +1,7 @@
 <h1>Where we've wandered</h1>
 
-<table>
+<% if @posts.any? %>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -36,6 +37,9 @@
     <% end %>
   </tbody>
 </table>
+<% else %>
+<h2>There doesn't seem to be anything here yet.</h2>
+<% end %>
 
 <br>
 
