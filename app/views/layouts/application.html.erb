@@ -19,11 +19,13 @@
 		<a class="navbar-brand" href="/">Vandre</a>
 		</div>
 		<div class="collapse navbar-collapse">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="/posts">Posts</a></li>
-				<p class="navbar-text pull-right">
+			<ul class="nav navbar-nav pull-left">
+				<li class="<%=current_page('users', 'index') %>"><a href="/users">Users</a></li>
+				<li class="<%= current_page('posts', 'index') %>"><a href="/posts">Posts</a></li>
+			</ul>
+			<ul class="navbar-text pull-right">
 				<% if user_signed_in? %>
-					Logged in as <strong><%= current_user.email %></strong>.
+					Logged in as <strong><%= current_user.email %></strong>
 					<%= link_to "Edit profile", edit_user_registration_path, :class => 'navbar-link' %> |
 					<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
 				<% else %>

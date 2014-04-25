@@ -1,4 +1,4 @@
-##Vande
+##Vandre
 Upload pictures of your adventures. Tag a map with EXIF data, or LAT/LNG coordinates.
 
 ##TODO
