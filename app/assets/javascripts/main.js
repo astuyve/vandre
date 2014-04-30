@@ -6,6 +6,11 @@ $(document).ready(function () {
 		}
 	})
 
+	$('.click_row .btn').click(function(e) {
+			e.stopPropagation();
+			
+		});
+
 	$('.click_row').hover(function() {
 		this.setAttribute('class', 'active');
 	},
