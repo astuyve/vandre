@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
   load_and_authorize_resource param_method: 'post_params'
-	include ApplicationHelper
+  include ApplicationHelper
 
   # GET /posts
   # GET /posts.json
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-		@post.user_id = current_user.id
+    @post.user_id = current_user.id
 
     respond_to do |format|
       if @post.save
@@ -65,10 +65,10 @@ class PostsController < ApplicationController
     end
   end
 
-	def correct_user
-		@post = Post.find(params[:id])
-		redirect_back_or_default(message="You don't have permissions to modify this post") unless can? :update, @post
-	end
+  def correct_user
+    @post = Post.find(params[:id])
+    redirect_back_or_default(message="You don't have permissions to modify this post") unless can? :update, @post
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

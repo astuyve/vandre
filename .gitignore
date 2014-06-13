@@ -20,3 +20,7 @@
 
 # Ignore public files
 /public
+
+devise.rb
+# Ignore secret token
+secret_token.rb

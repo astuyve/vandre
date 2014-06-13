@@ -28,16 +28,16 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/bryanrite/cancancan/wiki/Defining-Abilities
-		user ||= User.new
-		can :read, :all
+    user ||= User.new
+    can :read, :all
 
-		if user.has_role? :author
-			can :manage, Post, :user_id => user.id
-			can :manage, User, :user_id => user.id
-		end
-		
-		if user.has_any_role? :admin, :manager
-			can :manage, :all
-		end
+    if user.has_role? :author
+      can :manage, Post, :user_id => user.id
+      can :manage, User, :user_id => user.id
+    end
+    
+    if user.has_any_role? :admin, :manager
+      can :manage, :all
+    end
   end
 end

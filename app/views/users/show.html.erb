@@ -1,5 +1,11 @@
-<h1>Where <%= @user.email %>'s wandered</h1>
-
+<div class="row">
+	<div class="col-lg-8">
+		<h1>Where <%= @user.email %>'s wandered</h1>
+	</div>
+	<div class="col-lg-4 pull-right">
+		<%= link_to 'New Post', new_post_path, class: "btn btn-large btn-success" if current_user == @user%>
+	</div>
+</div>
 <% if @user.posts.any? %>
 <table class="table">
   <thead>
@@ -43,4 +49,3 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path, class: "btn btn-large btn-success" if current_user == @user%>
